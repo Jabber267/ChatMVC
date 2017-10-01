@@ -1,4 +1,4 @@
-# ChatAssessment
+# ChatMVC
 Basic Chat Application
 
 
