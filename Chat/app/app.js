@@ -1,0 +1,18 @@
+﻿//SignalR Client
+
+var hub = $.connection.chatHub;
+
+hub.client.message = function (msg) {
+    $("#message").append("<li style=\"list-style: none\">" + msg + "</li>")
+}
+
+hub.client.user = function (msg) {
+    $("#user").append("<li style=\"list-style: none\">" + msg + "</li>")
+}
+
+$.connection.hub.start(function () {
+    $("#send").click(function () {
+        hub.server.send($("#txt").val());
+        $("#txt").val(" ").focus();
+    })
+})

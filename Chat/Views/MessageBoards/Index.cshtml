@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Chat.MessageBoard>
+
+@{
+    ViewBag.Title = "OpenComs";
+}
+
+<h2>Welcome to OpenComs</h2>
+
+<div class="container">
+    <div class="row" style="width:400px;">
+        <br />
+        <input type="text" id="txt" class="form-control" style="float:left;" />
+        <button id="send" class="btn btn-success" style="float:right;">Send</button>
+    </div>
+    <div class="row">
+        <h3>Active Chat</h3>
+        <ul id="message" />
+        @foreach (var item in Model)
+        {
+            if (item.Username != ViewBag.LoggedInUser)
+            {
+                <li style="list-style: none">  @item.Username: @item.Message</li>
+            }
+            else
+            {
+                <li style="list-style: none"> You: @item.Message</li>
+            }
+
+
+        }
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/Scripts/jquery.signalR-2.2.2.min.js"></script>
+    <script src="~/signalr/hubs"></script>
+    <script src="~/app/app.js"></script>
+
+}
