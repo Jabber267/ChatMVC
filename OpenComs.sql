@@ -1,7 +1,10 @@
 CREATE DATABASE OpenComs;
 GO
 
-CREATE TABLE [dbo].[MessageBoard]
+USE OpenComs;
+GO
+
+CREATE TABLE [OpenComs].[dbo].[MessageBoard]
 (
 	[RID] [int] IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	[Username] [varchar](100) NOT NULL,
